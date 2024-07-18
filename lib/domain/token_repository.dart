@@ -30,9 +30,8 @@ class TokenRepository implements ITokenRepository {
     try {
       final response = await tokenClient.loginUser(request);
 
-      /// Kullanıcı girişi [Başarısız] ise
-      if (!response.success!) {
-        ///
+      /// Kullanıcı [Girişi Başarısız] ise
+      if (response.success == null || !response.success!) {
         return const Left(
           LoginFailure(
             message: 'Giriş Başarısız',
@@ -40,7 +39,7 @@ class TokenRepository implements ITokenRepository {
         );
       }
 
-      /// [Başarılı ise]
+      /// [Giriş Başarılı ise]
       return Right(response);
 
       ///
