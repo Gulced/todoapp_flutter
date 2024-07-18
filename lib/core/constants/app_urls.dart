@@ -1,9 +1,3 @@
-import 'package:flutter/material.dart' show immutable;
-
-/// [] yapısı: Compile Constant
-/// Kullanımı: AppUrls.baseUrl
-
-@immutable
 final class AppUrls {
   ///
   const AppUrls._();
@@ -16,4 +10,13 @@ final class AppUrls {
 
   ///
   static const String login = 'api/users/login';
+
+  ///
+  static const String logout = 'api/users/logout';
+
+  ///
+  static const String users = 'api/users';
+
+  ///
+  static const String todos = 'api/todos';
 }
