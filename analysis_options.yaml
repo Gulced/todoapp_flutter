@@ -1,5 +1,28 @@
 include: package:very_good_analysis/analysis_options.yaml
-
+analyzer:
+  
+  # Statik Kod Analiz Aracından hariç tutulacak dosyalar #
+  exclude:
+    ### [Eklediklerim] ###
+    - "**.g.dart"
+    - "**.freezed.dart"
+    - "**.config.dart"
+    - "**.chopper.dart"
+    - "**.mocks.dart"
+    - lib/app/generated/**.dart
+    - lib/app/generated/**
+    
+  
+  # Aşağıdakileri Error/Hata olarak nitele #
+  errors:
+   ### [Eklediklerim] ###
+    invalid_assignment: warning
+    dead_code: info
+    todo: ignore
+    unawaited_futures: warning
+    unused_import: warning
+    invalid_annotation_target: ignore
+    
 linter:
   rules:
     ### [Değiştirdiklerim - False] ###
