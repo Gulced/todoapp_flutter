@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import '/data/data.dart';
 
@@ -7,7 +8,7 @@ import '/data/data.dart';
 abstract class RegisterModule {
   ///
   @singleton
-  Dio get dio => Dio();
+  Dio get dio => Dio()..interceptors.add(PrettyDioLogger());
 
   ///
   @singleton
