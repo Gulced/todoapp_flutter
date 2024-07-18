@@ -3,8 +3,8 @@ import 'package:injectable/injectable.dart';
 import '/data/data.dart';
 
 abstract class ITokenRepository {
-  Future<AuthResponse> registerUser(RegisterRequest request);
-  Future<AuthResponse> loginUser(LoginRequest request);
+  Future<AuthResponse> registerUser({required RegisterRequest request});
+  Future<AuthResponse> loginUser({required LoginRequest request});
 }
 
 @LazySingleton(as: ITokenRepository)
@@ -17,11 +17,11 @@ class TokenRepository implements ITokenRepository {
 
   ///
   @override
-  Future<AuthResponse> registerUser(RegisterRequest request) =>
+  Future<AuthResponse> registerUser({required RegisterRequest request}) =>
       tokenClient.registerUser(request);
 
   ///
   @override
-  Future<AuthResponse> loginUser(LoginRequest request) =>
+  Future<AuthResponse> loginUser({required LoginRequest request}) =>
       tokenClient.loginUser(request);
 }
