@@ -1,3 +1,5 @@
+import 'package:injectable/injectable.dart';
+
 import '/data/data.dart';
 
 abstract class ITokenRepository {
@@ -5,6 +7,7 @@ abstract class ITokenRepository {
   Future<AuthResponse> loginUser(LoginRequest request);
 }
 
+@LazySingleton(as: ITokenRepository)
 class TokenRepository implements ITokenRepository {
   ///
   TokenRepository({required this.tokenClient});
