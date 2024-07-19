@@ -12,9 +12,7 @@ class _TokenClient implements TokenClient {
   _TokenClient(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://api.destekleme.com/';
-  }
+  });
 
   final Dio _dio;
 

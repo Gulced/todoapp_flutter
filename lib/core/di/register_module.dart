@@ -11,7 +11,11 @@ import '/data/data.dart';
 abstract class RegisterModule {
   ///
   @singleton
-  Dio get dio => Dio()..interceptors.add(PrettyDioLogger());
+  Dio get dio => Dio(
+        BaseOptions(
+          baseUrl: EnvConf.baseUrl,
+        ),
+      )..interceptors.add(PrettyDioLogger());
 
   ///
   @singleton

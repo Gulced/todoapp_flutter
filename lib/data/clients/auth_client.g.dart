@@ -12,9 +12,7 @@ class _AuthClient implements AuthClient {
   _AuthClient(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://api.destekleme.com/';
-  }
+  });
 
   final Dio _dio;
 
