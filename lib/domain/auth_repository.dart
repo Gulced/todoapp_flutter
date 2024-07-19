@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '/core/core.dart';
 import '/data/data.dart';
+import '/domain/domain.dart';
 
 abstract class IAuthRepository {
   Future<Either<AuthFailure, AuthResponse>> logoutUser({
@@ -28,10 +29,16 @@ abstract class IAuthRepository {
 @LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
   ///
-  AuthRepository({required this.authClient});
+  AuthRepository({
+    required this.authClient,
+    required this.storageRepository,
+  });
 
   ///
   final AuthClient authClient;
+
+  ///
+  final IStorageRepository storageRepository;
 
   /// [1 Çıkış Yap]
   @override
@@ -49,6 +56,12 @@ class AuthRepository implements IAuthRepository {
           ),
         );
       }
+
+      /// Clear auth tokens from the local storage
+      await Future.wait(<Future<void>>[
+        storageRepository.setToken(null),
+        storageRepository.setIsLogged(isLogged: false),
+      ]);
 
       /// [Çıkış Başarılı ise]
       return Right(response);
