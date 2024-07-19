@@ -27,7 +27,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginSubmitted>(_onSubmitted);
   }
 
-  final TokenRepository tokenRepository;
+  final ITokenRepository tokenRepository;
 
   /// [1 Username] alanı doldurulduğunda kontrol
   FutureOr<void> _onUsernameChanged(
