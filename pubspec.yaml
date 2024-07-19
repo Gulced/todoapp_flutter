@@ -44,3 +44,5 @@ flutter:
 
 flutter_gen:
   output: lib/core/gen
+  integrations:
+    flutter_svg: true

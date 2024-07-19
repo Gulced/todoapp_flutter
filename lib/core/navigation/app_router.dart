@@ -42,7 +42,7 @@ List<RouteBase> get _routes {
     /// Dahboard Ekranı için Rota
     GoRoute(
       path: '/dashboard',
-      name: 'login',
+      name: 'dashboard',
       builder: (context, state) => const DashboardView(),
     ),
   ];
