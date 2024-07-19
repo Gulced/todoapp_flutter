@@ -10,10 +10,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:btk_todo/core/di/register_module.dart' as _i12;
 import 'package:btk_todo/data/data.dart' as _i4;
-import 'package:btk_todo/domain/auth_repository.dart' as _i7;
-import 'package:btk_todo/domain/domain.dart' as _i10;
-import 'package:btk_todo/domain/storage_repository.dart' as _i8;
-import 'package:btk_todo/domain/token_repository.dart' as _i9;
+import 'package:btk_todo/domain/auth_repository.dart' as _i8;
+import 'package:btk_todo/domain/domain.dart' as _i9;
+import 'package:btk_todo/domain/storage_repository.dart' as _i7;
+import 'package:btk_todo/domain/token_repository.dart' as _i10;
 import 'package:btk_todo/login/bloc/login_bloc.dart' as _i11;
 import 'package:dio/dio.dart' as _i3;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i5;
@@ -42,18 +42,20 @@ extension GetItInjectableX on _i1.GetIt {
       () => registerModule.unsecuredStorage,
       preResolve: true,
     );
-    gh.lazySingleton<_i7.IAuthRepository>(
-        () => _i7.AuthRepository(authClient: gh<_i4.AuthClient>()));
-    gh.singleton<_i8.IStorageRepository>(() => _i8.StorageRepository(
+    gh.singleton<_i7.IStorageRepository>(() => _i7.StorageRepository(
           securedStorage: gh<_i5.FlutterSecureStorage>(),
           unsecuredStorage: gh<_i6.SharedPreferences>(),
         ));
-    gh.lazySingleton<_i9.ITokenRepository>(() => _i9.TokenRepository(
+    gh.lazySingleton<_i8.IAuthRepository>(() => _i8.AuthRepository(
+          authClient: gh<_i4.AuthClient>(),
+          storageRepository: gh<_i9.IStorageRepository>(),
+        ));
+    gh.lazySingleton<_i10.ITokenRepository>(() => _i10.TokenRepository(
           tokenClient: gh<_i4.TokenClient>(),
-          storageRepository: gh<_i10.IStorageRepository>(),
+          storageRepository: gh<_i9.IStorageRepository>(),
         ));
     gh.lazySingleton<_i11.LoginBloc>(
-        () => _i11.LoginBloc(tokenRepository: gh<_i10.ITokenRepository>()));
+        () => _i11.LoginBloc(tokenRepository: gh<_i9.ITokenRepository>()));
     return this;
   }
 }

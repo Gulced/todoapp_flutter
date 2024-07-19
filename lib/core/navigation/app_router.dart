@@ -23,7 +23,7 @@ final router = GoRouter(
 
   /// Kullanıcı girişi doğrulama
   /// Kullanıcı giriş yapmamışsa [LoginView] sayfasına,
-  /// giriş yapmışsa [HomeView] yönlendirilir.
+  /// giriş yapmışsa [DashboardView] yönlendirilir.
   redirect: _routeGuard,
 
   ///
