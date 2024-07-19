@@ -11,10 +11,10 @@
 import 'package:btk_todo/core/di/register_module.dart' as _i12;
 import 'package:btk_todo/data/data.dart' as _i4;
 import 'package:btk_todo/domain/auth_repository.dart' as _i7;
-import 'package:btk_todo/domain/domain.dart' as _i11;
+import 'package:btk_todo/domain/domain.dart' as _i10;
 import 'package:btk_todo/domain/storage_repository.dart' as _i8;
 import 'package:btk_todo/domain/token_repository.dart' as _i9;
-import 'package:btk_todo/login/bloc/login_bloc.dart' as _i10;
+import 'package:btk_todo/login/bloc/login_bloc.dart' as _i11;
 import 'package:dio/dio.dart' as _i3;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i5;
 import 'package:get_it/get_it.dart' as _i1;
@@ -50,10 +50,10 @@ extension GetItInjectableX on _i1.GetIt {
         ));
     gh.lazySingleton<_i9.ITokenRepository>(() => _i9.TokenRepository(
           tokenClient: gh<_i4.TokenClient>(),
-          storageRepository: gh<InvalidType>(),
+          storageRepository: gh<_i10.IStorageRepository>(),
         ));
-    gh.lazySingleton<_i10.LoginBloc>(
-        () => _i10.LoginBloc(tokenRepository: gh<_i11.ITokenRepository>()));
+    gh.lazySingleton<_i11.LoginBloc>(
+        () => _i11.LoginBloc(tokenRepository: gh<_i10.ITokenRepository>()));
     return this;
   }
 }
