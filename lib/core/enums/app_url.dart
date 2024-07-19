@@ -2,7 +2,6 @@
 /// Kullanımı: AppUrl.baseUrl.path
 enum AppUrl {
   ///
-  baseUrl('https://api.destekleme.com/'),
   register('api/users/register'),
   login('api/users/login');
 

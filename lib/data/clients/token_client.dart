@@ -6,7 +6,7 @@ import '/data/data.dart';
 
 part 'token_client.g.dart';
 
-@RestApi(baseUrl: AppUrls.baseUrl)
+@RestApi()
 
 /// Token Üreten Servisler
 abstract class TokenClient {

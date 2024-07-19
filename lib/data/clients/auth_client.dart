@@ -7,7 +7,7 @@ import '/data/data.dart';
 
 part 'auth_client.g.dart';
 
-@RestApi(baseUrl: AppUrls.baseUrl)
+@RestApi()
 
 /// Token İsteyen Sınıflar
 abstract class AuthClient {

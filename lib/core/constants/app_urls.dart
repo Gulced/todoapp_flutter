@@ -3,9 +3,6 @@ final class AppUrls {
   const AppUrls._();
 
   ///
-  static const String baseUrl = 'https://api.destekleme.com/';
-
-  ///
   static const String register = 'api/users/register';
 
   ///
