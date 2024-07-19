@@ -46,6 +46,7 @@ class Data with EquatableMixin {
     this.email,
     this.createdAt,
     this.updatedAt,
+    this.token,
   });
 
   ///
@@ -60,6 +61,7 @@ class Data with EquatableMixin {
   final String? email;
   final String? createdAt;
   final String? updatedAt;
+  final String? token;
 
   ///
   Map<String, dynamic> toJson() => _$DataToJson(this);

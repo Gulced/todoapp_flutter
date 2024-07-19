@@ -30,6 +30,7 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       email: json['email'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
+      token: json['token'] as String?,
     );
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
@@ -41,4 +42,5 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'email': instance.email,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'token': instance.token,
     };

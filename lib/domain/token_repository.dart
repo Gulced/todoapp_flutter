@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '/core/core.dart';
 import '/data/data.dart';
+import '/domain/domain.dart';
 
 abstract class ITokenRepository {
   Future<Either<LoginFailure, AuthResponse>> registerUser({
@@ -16,10 +17,16 @@ abstract class ITokenRepository {
 @LazySingleton(as: ITokenRepository)
 class TokenRepository implements ITokenRepository {
   ///
-  TokenRepository({required this.tokenClient});
+  TokenRepository({
+    required this.tokenClient,
+    required this.storageRepository,
+  });
 
   ///
   final TokenClient tokenClient;
+
+  ///
+  final IStorageRepository storageRepository;
 
   ///
   @override
@@ -38,6 +45,15 @@ class TokenRepository implements ITokenRepository {
           ),
         );
       }
+
+      /// Save tokens to local storage
+      await Future.wait(<Future<void>>[
+        /// Token'ı Cache'le
+        storageRepository.setToken(response.data?.token),
+
+        /// Giriş Yaptığını Cache'le
+        storageRepository.setIsLogged(isLogged: true),
+      ]);
 
       /// [Giriş Başarılı ise]
       return Right(response);
