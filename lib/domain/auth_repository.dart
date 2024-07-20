@@ -26,7 +26,7 @@ abstract class IAuthRepository {
   Future<Either<AuthFailure, Todo>> insertTodo({required TodoRequest request});
 }
 
-@LazySingleton(as: IAuthRepository)
+@Singleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
   ///
   AuthRepository({

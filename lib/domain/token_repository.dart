@@ -14,7 +14,7 @@ abstract class ITokenRepository {
   });
 }
 
-@LazySingleton(as: ITokenRepository)
+@Singleton(as: ITokenRepository)
 class TokenRepository implements ITokenRepository {
   ///
   TokenRepository({

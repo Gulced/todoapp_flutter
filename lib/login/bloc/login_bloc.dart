@@ -12,7 +12,7 @@ import '/domain/domain.dart';
 part 'login_event.dart';
 part 'login_state.dart';
 
-@LazySingleton()
+@Injectable()
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc({
     required this.tokenRepository,

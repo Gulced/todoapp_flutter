@@ -10,4 +10,4 @@ final GetIt getIt = GetIt.instance;
 @InjectableInit()
 
 ///
-void configureDependencies() => getIt.init();
+Future<void> configureDependencies() => getIt.init();

@@ -13,7 +13,7 @@ abstract class IStorageRepository {
   Future<void> setIsLogged({bool? isLogged});
 }
 
-@Singleton(as: IStorageRepository)
+@Injectable(as: IStorageRepository)
 class StorageRepository implements IStorageRepository {
   ///
   const StorageRepository({

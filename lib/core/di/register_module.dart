@@ -27,10 +27,9 @@ abstract class RegisterModule {
   TokenClient get tokenClient => TokenClient(dio);
 
   ///
-  @lazySingleton
+  @singleton
   FlutterSecureStorage get securedStorage => const FlutterSecureStorage();
 
-  @lazySingleton
   @preResolve
   Future<SharedPreferences> get unsecuredStorage =>
       SharedPreferences.getInstance();

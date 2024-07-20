@@ -33,7 +33,7 @@ class _TokenClient implements TokenClient {
     )
             .compose(
               _dio.options,
-              'api/users/register',
+              '/api/users/register',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -61,7 +61,7 @@ class _TokenClient implements TokenClient {
     )
             .compose(
               _dio.options,
-              'api/users/login',
+              '/api/users/login',
               queryParameters: queryParameters,
               data: _data,
             )

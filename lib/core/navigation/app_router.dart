@@ -16,7 +16,7 @@ final router = GoRouter(
   navigatorKey: rootNavigatorKey,
 
   ///
-  initialLocation: '/homeTabView',
+  initialLocation: '/login',
 
   ///
   debugLogDiagnostics: true,
