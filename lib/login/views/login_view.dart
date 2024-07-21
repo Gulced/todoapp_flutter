@@ -146,27 +146,46 @@ class _LoginButton extends StatelessWidget {
       listener: (context, state) {
         /// Giriş Hataylıysa
         if (state.status == LoginStatus.failure) {
-          const snackBar = SnackBar(
-            content: Text('Giriş Hatalı'),
+          const errorText = Text(
+            'Kullanıcı adınızı veya parolanızı kontrol edin.',
+            style: TextStyle(
+              color: Colors.white,
+            ),
           );
 
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          final snackBar = SnackBar(
+            content: errorText,
+            backgroundColor: AppTheme.lightScheme.error,
+          );
+
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(snackBar);
         }
 
         ///
         if (state.status == LoginStatus.authenticated) {
+          final successText = Text(
+            '${state.username.value} başarıyla giriş yaptınız. Hoş geldiniz!',
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          );
           final snackBar = SnackBar(
-            content: Text('Giriş Başarılı. Hoşgeldin: ${state.username.value}'),
+            content: successText,
+            backgroundColor: AppTheme.lightScheme.primary,
           );
 
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(snackBar);
 
           GoRouter.of(context).go('/dashboard');
         }
       },
 
       ///
-      child: ElevatedButton(
+      child: AppElevatedButton(
         ///
         onPressed: state.isValid
             ? () {
@@ -189,7 +208,7 @@ class _LoginButton extends StatelessWidget {
         child: state.status == LoginStatus.loading ||
                 state.status == LoginStatus.authenticated
             ? CircularProgressIndicator(
-                color: AppTheme.lightScheme.primary,
+                color: AppTheme.lightScheme.onPrimary,
               )
             : Text(
                 'Giriş Yap',
