@@ -5,8 +5,8 @@ import 'package:go_router/go_router.dart';
 import '/auth/auth.dart';
 import '/core/core.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +24,14 @@ class LoginView extends StatelessWidget {
       ///
       child: const Scaffold(
         ///
-        body: LoginViewBody(),
+        body: SignUpViewBody(),
       ),
     );
   }
 }
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+class SignUpViewBody extends StatelessWidget {
+  const SignUpViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,22 +45,30 @@ class LoginViewBody extends StatelessWidget {
 
           /// [1] Logo
           _BtkAkademiLogo(),
-          SizedBox(height: 50),
 
           /// [2] Username Field
+          SizedBox(height: 50),
           _UsernameField(),
 
-          /// [3] Password Field
+          /// [3] Name Field
+          SizedBox(height: 50),
+          _NameField(),
+
+          /// [4] Surname Field
+          SizedBox(height: 50),
+          _SurnameField(),
+
+          /// [5] Password Field
           SizedBox(height: 10),
           _PasswordField(),
 
-          /// [4] Login Button
+          /// [6] Login Button
           SizedBox(height: 10),
-          _LoginButton(),
+          _SignupButton(),
 
-          /// [5]
+          /// [7]
           SizedBox(height: 50),
-          _DontHaveAnAccount(),
+          HaveAnAccountAlready(),
         ],
       ),
     );
@@ -84,8 +92,8 @@ class _UsernameField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final read = context.read<LoginBloc>();
-    final state = context.watch<LoginBloc>().state;
+    final read = context.read<SignupBloc>();
+    final state = context.watch<SignupBloc>().state;
 
     return AppTextField(
       hintText: context.translate.authFormUsername,
@@ -98,11 +106,67 @@ class _UsernameField extends StatelessWidget {
 
       /// [Event Tetikle]
       onChanged: (username) => read.add(
-        LoginUsernameChanged(username),
+        SignupUsernameChanged(username),
       ),
 
       errorText: state.username.displayError
           ?.errorText(context, context.translate.authFormUsername),
+    );
+  }
+}
+
+class _NameField extends StatelessWidget {
+  const _NameField();
+
+  @override
+  Widget build(BuildContext context) {
+    final read = context.read<SignupBloc>();
+    final state = context.watch<SignupBloc>().state;
+
+    return AppTextField(
+      hintText: context.translate.authFormName,
+      autoFillHints: const [AutofillHints.name],
+      keyboardType: TextInputType.name,
+      textInputAction: TextInputAction.next,
+      prefix: const Icon(
+        Icons.person,
+      ),
+
+      /// [Event Tetikle]
+      onChanged: (name) => read.add(
+        SignupNameChanged(name),
+      ),
+
+      errorText: state.name.displayError
+          ?.errorText(context, context.translate.authFormName),
+    );
+  }
+}
+
+class _SurnameField extends StatelessWidget {
+  const _SurnameField();
+
+  @override
+  Widget build(BuildContext context) {
+    final read = context.read<SignupBloc>();
+    final state = context.watch<SignupBloc>().state;
+
+    return AppTextField(
+      hintText: context.translate.authFormSurname,
+      autoFillHints: const [AutofillHints.familyName],
+      keyboardType: TextInputType.name,
+      textInputAction: TextInputAction.next,
+      prefix: const Icon(
+        Icons.person_outline,
+      ),
+
+      /// [Event Tetikle]
+      onChanged: (surname) => read.add(
+        SignupSurnameChanged(surname),
+      ),
+
+      errorText: state.surname.displayError
+          ?.errorText(context, context.translate.authFormName),
     );
   }
 }
@@ -112,8 +176,8 @@ class _PasswordField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final read = context.read<LoginBloc>();
-    final state = context.watch<LoginBloc>().state;
+    final read = context.read<SignupBloc>();
+    final state = context.watch<SignupBloc>().state;
 
     return AppTextField(
       hintText: context.translate.authFormPassword,
@@ -130,7 +194,7 @@ class _PasswordField extends StatelessWidget {
 
       /// [Event Tetikle]
       onChanged: (password) => read.add(
-        LoginPasswordChanged(password),
+        SignupPasswordChanged(password),
       ),
 
       errorText: state.password.displayError
@@ -139,21 +203,21 @@ class _PasswordField extends StatelessWidget {
   }
 }
 
-class _LoginButton extends StatelessWidget {
-  const _LoginButton();
+class _SignupButton extends StatelessWidget {
+  const _SignupButton();
 
   @override
   Widget build(BuildContext context) {
-    final read = context.read<LoginBloc>();
-    final state = context.watch<LoginBloc>().state;
+    final read = context.read<SignupBloc>();
+    final state = context.watch<SignupBloc>().state;
 
     ///
-    return BlocListener<LoginBloc, LoginState>(
+    return BlocListener<SignupBloc, SignupState>(
       listener: (context, state) {
         /// Giriş Hatalı ise
         if (state.status == LoginStatus.failure) {
           final errorText = Text(
-            context.translate.loginMessageError,
+            context.translate.signupMessageError,
             style: const TextStyle(
               color: Colors.white,
             ),
@@ -172,7 +236,7 @@ class _LoginButton extends StatelessWidget {
         ///
         if (state.status == LoginStatus.authenticated) {
           final successText = Text(
-            context.translate.loginMessageSuccess(state.username.value),
+            context.translate.signupMessageSuccess(state.username.value),
             style: const TextStyle(
               color: Colors.white,
             ),
@@ -201,8 +265,10 @@ class _LoginButton extends StatelessWidget {
 
                 /// Kullanıcı Giriş İşlemi
                 read.add(
-                  LoginSubmitted(
+                  SignupSubmitted(
                     state.username.value,
+                    state.name.value,
+                    state.surname.value,
                     state.password.value,
                   ),
                 );
@@ -218,7 +284,7 @@ class _LoginButton extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onPrimary,
               )
             : Text(
-                context.translate.authButtonLogIn,
+                context.translate.authButtonSignUp,
                 style: TextStyle(
                   fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
                 ),
@@ -228,17 +294,18 @@ class _LoginButton extends StatelessWidget {
   }
 }
 
-class _DontHaveAnAccount extends StatelessWidget {
-  const _DontHaveAnAccount();
+class HaveAnAccountAlready extends StatelessWidget {
+  const HaveAnAccountAlready({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppTextButton(
       onPressed: () {
-        /// SignUp sayfası tamamlanınca eklenecek
+        /// [Login Sayfasına Git]
+        context.go('/login');
       },
-      primaryText: context.translate.authNoAccount,
-      actionText: context.translate.authButtonSignUp,
+      primaryText: context.translate.authAlreadyAccount,
+      actionText: context.translate.authButtonLogIn,
     );
   }
 }

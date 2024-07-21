@@ -10,6 +10,11 @@
     "@loginMessageError": {
         "description": "Error message for incorrect username or password"
     },
+    
+    "signupMessageError": "Please check your username, name, surname, or password",
+    "@signupMessageError": {
+        "description": "Error message for incorrect or invalid username, name, surname, or password"
+    },
 
     "loginMessageSuccess": "Signed in as {email}",
     "@loginMessageSuccess": {
@@ -21,9 +26,29 @@
         }
     },
 
+    "signupMessageSuccess": "Signed up as {email}",
+    "@signupMessageSuccess": {
+        "description": "Success message after signup",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+
     "authFormUsername": "Username",
     "@authFormUsername": {
         "description": "Label for username field"
+    },
+
+    "authFormName": "Name",
+    "@authFormName": {
+        "description": "Label for the name field"
+    },
+    
+    "authFormSurname": "Surname",
+    "@authFormSurname": {
+        "description": "Label for the surname field"
     },
 
     "authFormPassword": "Password",

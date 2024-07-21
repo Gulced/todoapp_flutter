@@ -11,6 +11,11 @@
         "description": "Giriş hatası mesajı"
     },
 
+    "signupMessageError": "Lütfen kullanıcı adınızı, adınızı, soyadınızı veya şifrenizi kontrol edin",
+    "@signupMessageError": {
+        "description": "Geçersiz veya hatalı kullanıcı adı, ad, soyad veya şifre için hata mesajı"
+    },
+
     "loginMessageSuccess": "{email} olarak giriş yaptınız",
     "@loginMessageSuccess": {
         "description": "Girişten sonra başarı mesajı",
@@ -21,9 +26,29 @@
         }
     },
 
+    "signupMessageSuccess": "{email} olarak kaydoldu",
+    "@signupMessageSuccess": {
+        "description": "Kayıttan sonra başarı mesajı",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+
     "authFormUsername": "Kullanıcı Adı",
     "@authFormUsername": {
         "description": "Kullanıcı adı alanı etiketi"
+    },
+
+    "authFormName": "Ad",
+    "@authFormName": {
+        "description": "Ad alanı için etiket"
+    },
+    
+    "authFormSurname": "Soyad",
+    "@authFormSurname": {
+        "description": "Soyad alanı için etiket"
     },
 
     "authFormPassword": "Şifre",

@@ -1,14 +1,5 @@
 part of 'signup_bloc.dart';
 
-enum LoginStatus {
-  unknown, // Başlangıç durumu, oturum durumu bilinmiyor.
-  authenticated, // Kullanıcı başarıyla doğrulanmış.
-  unAuthenticated, // Kullanıcı doğrulanamamış.
-  loading, // Oturum durumu yükleniyor.
-  failure, // Oturum açma işlemi başarısız oldu.
-  edit, // Kullanıcı bilgileri düzenleniyor.
-}
-
 class SignupState extends Equatable {
   ///
   const SignupState({
