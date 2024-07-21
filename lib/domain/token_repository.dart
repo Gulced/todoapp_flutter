@@ -12,6 +12,8 @@ abstract class ITokenRepository {
   Future<Either<LoginFailure, AuthResponse>> loginUser({
     required LoginRequest request,
   });
+
+  Future<Either<LoginFailure, Unit>> logout();
 }
 
 @Singleton(as: ITokenRepository)
@@ -98,6 +100,34 @@ class TokenRepository implements ITokenRepository {
 
       ///
       return Right(response);
+    } catch (e) {
+      ///
+      return Left(
+        LoginFailure(
+          message: '$e',
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<LoginFailure, Unit>> logout() async {
+    try {
+      ///
+      await Future<void>.delayed(const Duration(milliseconds: 500));
+
+      /// Clear auth tokens from the local storage
+      await Future.wait(<Future<void>>[
+        /// Token'ı Cache'ten temizle
+        storageRepository.setToken(null),
+
+        /// Çıkış Yaptığını Cache'le
+        storageRepository.setIsLogged(isLogged: false),
+      ]);
+
+      /// Alternatif Kullanım:
+      /// return right(unit);
+      return const Right<LoginFailure, Unit>(unit);
     } catch (e) {
       ///
       return Left(
