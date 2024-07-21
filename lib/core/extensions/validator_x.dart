@@ -5,6 +5,10 @@ extension ValidatorX on String {
           .hasMatch(this);
 
   ///
+  bool get isValidNameOrSurname =>
+      RegExp(r'^[a-zA-ZçÇğĞıİöÖşŞüÜ\s.]+$').hasMatch(this);
+
+  ///
   bool get isValidPassword =>
       RegExp(r'^(?=.*[!@#$%^&*(),.?":{}|<>]).*$').hasMatch(this);
 }

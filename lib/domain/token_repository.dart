@@ -87,6 +87,15 @@ class TokenRepository implements ITokenRepository {
         );
       }
 
+      /// Save tokens to local storage
+      await Future.wait(<Future<void>>[
+        /// Token'ı Cache'le
+        storageRepository.setToken(response.data?.token),
+
+        /// Giriş Yaptığını Cache'le
+        storageRepository.setIsLogged(isLogged: true),
+      ]);
+
       ///
       return Right(response);
     } catch (e) {
