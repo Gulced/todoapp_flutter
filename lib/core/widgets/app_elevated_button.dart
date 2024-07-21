@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '/core/core.dart';
-
 ///
 class AppElevatedButton extends StatelessWidget {
   /// {
@@ -75,7 +73,7 @@ class AppElevatedButton extends StatelessWidget {
         textStyle: onPressed == null
             ? WidgetStateProperty.all(
                 TextStyle(
-                  color: AppTheme.lightScheme.onSecondary,
+                  color: Theme.of(context).colorScheme.onSecondary,
                 ),
               )
             : WidgetStateProperty.all(
@@ -85,23 +83,23 @@ class AppElevatedButton extends StatelessWidget {
         /// Text'in Rengi
         foregroundColor: onPressed == null
             ? WidgetStateProperty.all(
-                AppTheme.lightScheme.primary,
+                Theme.of(context).colorScheme.primary,
               )
 
             /// Etkin Olduğunda
             : WidgetStateProperty.all(
-                AppTheme.lightScheme.onPrimary,
+                Theme.of(context).colorScheme.onPrimary,
               ),
 
         ///  Butonun Arka Plan rengi
         backgroundColor: onPressed == null
             ? WidgetStateProperty.all(
-                AppTheme.lightScheme.secondaryContainer,
+                Theme.of(context).colorScheme.secondaryContainer,
               )
 
             /// Etkin Olduğunda
             : WidgetStateProperty.all(
-                AppTheme.lightScheme.primary,
+                Theme.of(context).colorScheme.primary,
               ),
 
         /// Buton kenar çizgisinin Style'ı (kalınlık, renk).

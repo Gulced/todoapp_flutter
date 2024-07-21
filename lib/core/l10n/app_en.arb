@@ -51,9 +51,24 @@
         }
     },
 
+    "authNoAccount": "Don't have an account?",
+    "@authNoAccount": {
+        "description": "Prompt asking if the user doesn't have an account on the LogIn page"
+    },
+    
+    "authAlreadyAccount": "Have an account already?",
+    "@authAlreadyAccount": {
+        "description": "Prompt asking if the user already has an account on the SignUp page"
+    },
+
     "authButtonLogIn": "Log In",
     "@authButtonLogIn": {
         "description": "Login button text"
+    },
+
+    "authButtonSignUp": "Sign Up",
+    "@authButtonSignUp": {
+        "description": "Button text for signing up on the SignUp page"
     },
 
     "authButtonLogOut": "Log Out",

@@ -57,6 +57,10 @@ class LoginViewBody extends StatelessWidget {
           /// [4] Login Button
           SizedBox(height: 10),
           _LoginButton(),
+
+          /// [5]
+          SizedBox(height: 50),
+          _DontHaveAnAccount(),
         ],
       ),
     );
@@ -157,7 +161,7 @@ class _LoginButton extends StatelessWidget {
 
           final snackBar = SnackBar(
             content: errorText,
-            backgroundColor: AppTheme.lightScheme.error,
+            backgroundColor: Theme.of(context).colorScheme.error,
           );
 
           ScaffoldMessenger.of(context)
@@ -175,7 +179,7 @@ class _LoginButton extends StatelessWidget {
           );
           final snackBar = SnackBar(
             content: successText,
-            backgroundColor: AppTheme.lightScheme.primary,
+            backgroundColor: Theme.of(context).colorScheme.primary,
           );
 
           ScaffoldMessenger.of(context)
@@ -210,7 +214,7 @@ class _LoginButton extends StatelessWidget {
         child: state.status == LoginStatus.loading ||
                 state.status == LoginStatus.authenticated
             ? CircularProgressIndicator(
-                color: AppTheme.lightScheme.onPrimary,
+                color: Theme.of(context).colorScheme.onPrimary,
               )
             : Text(
                 context.translate.authButtonLogIn,
@@ -219,6 +223,21 @@ class _LoginButton extends StatelessWidget {
                 ),
               ),
       ),
+    );
+  }
+}
+
+class _DontHaveAnAccount extends StatelessWidget {
+  const _DontHaveAnAccount();
+
+  @override
+  Widget build(BuildContext context) {
+    return AppTextButton(
+      onPressed: () {
+        /// SignUp sayfası tamamlanınca eklenecek
+      },
+      primaryText: context.translate.authNoAccount,
+      actionText: context.translate.authButtonSignUp,
     );
   }
 }

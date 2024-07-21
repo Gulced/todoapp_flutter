@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '/core/core.dart';
-
 ///
 class AppTextField extends StatelessWidget {
   ///
@@ -133,7 +131,7 @@ class AppTextField extends StatelessWidget {
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: AppTheme.lightScheme.primary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -142,7 +140,7 @@ class AppTextField extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: AppTheme.lightScheme.primary,
+                  color: Theme.of(context).colorScheme.primary,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(8),

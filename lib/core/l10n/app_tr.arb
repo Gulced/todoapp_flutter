@@ -51,9 +51,24 @@
         }
     },
 
+    "authNoAccount": "Henüz bir hesabın yok mu?",
+    "@authNoAccount": {
+        "description": "Giriş sayfasında kullanıcının hesabı olup olmadığını soran mesaj"
+    },
+    
+    "authAlreadyAccount": "Zaten bir hesabın var mı?",
+    "@authAlreadyAccount": {
+        "description": "Kayıt olma sayfasında kullanıcının zaten hesabı olup olmadığını soran mesaj"
+    },
+
     "authButtonLogIn": "Giriş Yap",
     "@authButtonLogIn": {
         "description": "Giriş butonu metni"
+    },
+
+    "authButtonSignUp": "Kaydol",
+    "@authButtonSignUp": {
+        "description": "Kayıt olma sayfasında kayıt olma butonu metni"
     },
 
     "authButtonLogOut": "Çıkış Yap",
