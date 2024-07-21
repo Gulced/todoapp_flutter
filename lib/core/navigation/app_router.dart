@@ -4,9 +4,9 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '/auth/auth.dart';
 import '/core/core.dart';
 import '/domain/domain.dart';
-import '../../auth/login.dart';
 
 /// 1: Uygulamanın Ana Navigator'unu yönetmesi için GlobalKey.
 final rootNavigatorKey = GlobalKey<NavigatorState>();
