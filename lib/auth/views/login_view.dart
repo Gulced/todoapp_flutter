@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '/core/core.dart';
-import '/login/login.dart';
+import '../login.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});

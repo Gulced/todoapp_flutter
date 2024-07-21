@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '/core/core.dart';
-import '/login/login.dart';
+import 'auth/login.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

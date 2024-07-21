@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '/core/core.dart';
 import '/domain/domain.dart';
-import '/login/login.dart';
+import '../../auth/login.dart';
 
 /// 1: Uygulamanın Ana Navigator'unu yönetmesi için GlobalKey.
 final rootNavigatorKey = GlobalKey<NavigatorState>();
