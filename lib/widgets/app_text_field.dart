@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '/core/core.dart';
+
 ///
 class AppTextField extends StatelessWidget {
   ///
@@ -111,6 +113,7 @@ class AppTextField extends StatelessWidget {
             onFieldSubmitted: onSubmitted,
             decoration: InputDecoration(
               filled: fillColorWhiteEnabled ? true : null,
+              fillColor: fillColorWhiteEnabled ? Colors.white : null,
               contentPadding: const EdgeInsets.all(16),
               hintText: hintText,
               errorText: errorText,
@@ -124,16 +127,17 @@ class AppTextField extends StatelessWidget {
                 width: 48,
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              border: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colors.grey[400]!,
+                  color: AppTheme.lightScheme.primary,
                 ),
                 borderRadius: BorderRadius.circular(8),
               ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
               focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(
+                borderSide: BorderSide(
+                  color: AppTheme.lightScheme.primary,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(8),

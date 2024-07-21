@@ -26,7 +26,7 @@ class LoginViewBody extends StatelessWidget {
     return const Column(
       children: [
         /// [1] Logo
-        _FlutterLogo(),
+        _BtkAkademiLogo(),
         SizedBox(height: 60),
 
         /// [2] Username Field
@@ -44,14 +44,14 @@ class LoginViewBody extends StatelessWidget {
   }
 }
 
-class _FlutterLogo extends StatelessWidget {
-  const _FlutterLogo();
+class _BtkAkademiLogo extends StatelessWidget {
+  const _BtkAkademiLogo();
 
   @override
   Widget build(BuildContext context) {
-    return Assets.svg.flutterLogo.svg(
-      height: 50,
-      width: 200,
+    return Assets.logos.btkAkademiLogo.image(
+      width: 300,
+      height: 150,
     );
   }
 }

@@ -8,3 +8,4 @@ export 'form_inputs/form_inputs.dart';
 export 'gen/gen.dart';
 export 'interceptors/interceptors.dart';
 export 'navigation/navigation.dart';
+export 'theme/theme.dart';

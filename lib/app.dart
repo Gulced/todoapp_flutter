@@ -16,6 +16,10 @@ class App extends StatelessWidget {
       ///
       child: MaterialApp.router(
         routerConfig: router,
+
+        ///
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
       ),
     );
   }

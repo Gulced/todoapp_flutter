@@ -15,11 +15,12 @@ import 'package:vector_graphics/vector_graphics.dart';
 class $AssetsLogosGen {
   const $AssetsLogosGen();
 
-  /// File path: assets/logos/btk_logo.png
-  AssetGenImage get btkLogo => const AssetGenImage('assets/logos/btk_logo.png');
+  /// File path: assets/logos/btk_akademi_logo.png
+  AssetGenImage get btkAkademiLogo =>
+      const AssetGenImage('assets/logos/btk_akademi_logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [btkLogo];
+  List<AssetGenImage> get values => [btkAkademiLogo];
 }
 
 class $AssetsSvgGen {
