@@ -97,7 +97,8 @@ class _UsernameField extends StatelessWidget {
         LoginUsernameChanged(username),
       ),
 
-      errorText: state.username.displayError?.errorText,
+      errorText: state.username.displayError
+          ?.errorText(context, context.translate.authFormUsername),
     );
   }
 }
@@ -128,7 +129,8 @@ class _PasswordField extends StatelessWidget {
         LoginPasswordChanged(password),
       ),
 
-      errorText: state.password.displayError?.errorText,
+      errorText: state.password.displayError
+          ?.errorText(context, context.translate.authFormPassword),
     );
   }
 }

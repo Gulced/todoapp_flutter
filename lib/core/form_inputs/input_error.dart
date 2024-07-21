@@ -1,3 +1,6 @@
+import 'package:btk_todo/core/core.dart';
+import 'package:flutter/material.dart';
+
 enum InputError {
   /// Form alanının boş bırakılması
   /// hata durumunu belirtir.
@@ -7,19 +10,19 @@ enum InputError {
   /// hata durumunu belirtir.
   invalid;
 
-  /// Bu getter metodu, enum değerine göre uygun
+  /// Bu metot, enum değerine göre uygun
   /// hata mesajını döndürür.
-  String get errorText {
+  String errorText(BuildContext context, String fieldname) {
     /// enum değerine göre kontrol yapar ve
     /// ilgili hata mesajını döner
     switch (this) {
       /// empty durumu için hata mesajı
       case InputError.empty:
-        return 'Lütfen form alanını doldurun.';
+        return context.translate.authFormErrorsFill(fieldname);
 
-      ///invalid durumu için hata mesajı
+      /// invalid durumu için hata mesajı
       case InputError.invalid:
-        return 'Lütfen geçerli bir değer girin.';
+        return context.translate.authFormErrorsInvalid(fieldname);
     }
   }
 }

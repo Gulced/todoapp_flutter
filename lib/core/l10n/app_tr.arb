@@ -31,6 +31,26 @@
         "description": "Şifre alanı etiketi"
     },
 
+    "authFormErrorsFill": "Lütfen {fieldname} alanını doldurun",
+    "@authFormErrorsFill": {
+        "description": "Boş giriş alanı için hata mesajı",
+        "placeholders": {
+            "fieldname": {
+                "type": "String"
+            }
+        }
+    },
+
+    "authFormErrorsInvalid": "Lütfen geçerli bir {fieldname} girin",
+    "@authFormErrorsInvalid": {
+        "description": "Geçersiz giriş için hata mesajı",
+        "placeholders": {
+            "fieldname": {
+                "type": "String"
+            }
+        }
+    },
+
     "authButtonLogIn": "Giriş Yap",
     "@authButtonLogIn": {
         "description": "Giriş butonu metni"
