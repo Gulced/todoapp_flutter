@@ -67,7 +67,8 @@ class _UsernameField extends StatelessWidget {
     return AppTextField(
       hintText: 'Kullanıcı Adı',
       autoFillHints: const [AutofillHints.username],
-      keyboardType: TextInputType.name,
+      keyboardType: TextInputType.emailAddress,
+      textInputAction: TextInputAction.next,
       prefix: const Icon(
         Icons.account_circle,
       ),
@@ -93,6 +94,8 @@ class _PasswordField extends StatelessWidget {
     return AppTextField(
       hintText: 'Parola',
       autoFillHints: const [AutofillHints.password],
+      keyboardType: TextInputType.visiblePassword,
+      textInputAction: TextInputAction.done,
       obscureText: true,
       // obscureText parametresi sebebiyle min/maxLine'a elle değer
       minLines: 1,

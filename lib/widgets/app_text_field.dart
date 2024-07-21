@@ -19,6 +19,7 @@ class AppTextField extends StatelessWidget {
     this.prefix,
     this.suffix,
     this.keyboardType,
+    this.textInputAction,
     this.obscureText = false,
     this.onChanged,
     this.onSubmitted,
@@ -62,6 +63,9 @@ class AppTextField extends StatelessWidget {
   ///
   final TextInputType? keyboardType;
 
+  ///
+  final TextInputAction? textInputAction;
+
   /// Called when the user inserts or deletes texts in the text field.
   final ValueChanged<String>? onChanged;
 
@@ -100,6 +104,7 @@ class AppTextField extends StatelessWidget {
             controller: controller,
             inputFormatters: inputFormatters,
             keyboardType: keyboardType,
+            textInputAction: textInputAction,
             obscureText: obscureText,
             autocorrect: autocorrect,
             readOnly: readOnly,
