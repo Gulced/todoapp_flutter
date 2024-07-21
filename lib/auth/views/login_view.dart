@@ -235,7 +235,8 @@ class _DontHaveAnAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppTextButton(
       onPressed: () {
-        /// SignUp sayfası tamamlanınca eklenecek
+        /// [signup Sayfasına Git]
+        context.go('/signup');
       },
       primaryText: context.translate.authNoAccount,
       actionText: context.translate.authButtonSignUp,

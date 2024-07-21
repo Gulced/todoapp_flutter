@@ -11,10 +11,16 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ///
-    return BlocProvider<LoginBloc>(
-      create: (context) => getIt<LoginBloc>(),
-
+    return MultiBlocProvider(
       ///
+      providers: [
+        BlocProvider<LoginBloc>(
+          create: (context) => getIt<LoginBloc>(),
+        ),
+        BlocProvider<SignupBloc>(
+          create: (context) => getIt<SignupBloc>(),
+        ),
+      ],
       child: MaterialApp.router(
         title: 'BTK Todo',
         debugShowCheckedModeBanner: false,

@@ -5,8 +5,8 @@ import 'package:go_router/go_router.dart';
 import '/auth/auth.dart';
 import '/core/core.dart';
 
-class SignUpView extends StatelessWidget {
-  const SignUpView({super.key});
+class SignupView extends StatelessWidget {
+  const SignupView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +24,14 @@ class SignUpView extends StatelessWidget {
       ///
       child: const Scaffold(
         ///
-        body: SignUpViewBody(),
+        body: SignupViewBody(),
       ),
     );
   }
 }
 
-class SignUpViewBody extends StatelessWidget {
-  const SignUpViewBody({super.key});
+class SignupViewBody extends StatelessWidget {
+  const SignupViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,15 +47,15 @@ class SignUpViewBody extends StatelessWidget {
           _BtkAkademiLogo(),
 
           /// [2] Username Field
-          SizedBox(height: 50),
+          SizedBox(height: 10),
           _UsernameField(),
 
           /// [3] Name Field
-          SizedBox(height: 50),
+          SizedBox(height: 10),
           _NameField(),
 
           /// [4] Surname Field
-          SizedBox(height: 50),
+          SizedBox(height: 10),
           _SurnameField(),
 
           /// [5] Password Field
@@ -101,7 +101,7 @@ class _UsernameField extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.next,
       prefix: const Icon(
-        Icons.account_circle,
+        Icons.email_outlined,
       ),
 
       /// [Event Tetikle]

@@ -39,6 +39,13 @@ List<RouteBase> get _routes {
       builder: (context, state) => const LoginView(),
     ),
 
+    /// Kaydol Ekranı için Rota
+    GoRoute(
+      path: '/signup',
+      name: 'signup',
+      builder: (context, state) => const SignupView(),
+    ),
+
     /// Dahboard Ekranı için Rota
     GoRoute(
       path: '/dashboard',
