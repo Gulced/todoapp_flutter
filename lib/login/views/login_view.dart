@@ -84,7 +84,7 @@ class _UsernameField extends StatelessWidget {
     final state = context.watch<LoginBloc>().state;
 
     return AppTextField(
-      hintText: 'Kullanıcı Adı',
+      hintText: context.translate.authFormUsername,
       autoFillHints: const [AutofillHints.username],
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.next,
@@ -111,7 +111,7 @@ class _PasswordField extends StatelessWidget {
     final state = context.watch<LoginBloc>().state;
 
     return AppTextField(
-      hintText: 'Parola',
+      hintText: context.translate.authFormPassword,
       autoFillHints: const [AutofillHints.password],
       keyboardType: TextInputType.visiblePassword,
       textInputAction: TextInputAction.done,
@@ -144,11 +144,11 @@ class _LoginButton extends StatelessWidget {
     ///
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
-        /// Giriş Hataylıysa
+        /// Giriş Hatalı ise
         if (state.status == LoginStatus.failure) {
-          const errorText = Text(
-            'Kullanıcı adınızı veya parolanızı kontrol edin.',
-            style: TextStyle(
+          final errorText = Text(
+            context.translate.loginMessageError,
+            style: const TextStyle(
               color: Colors.white,
             ),
           );
@@ -166,7 +166,7 @@ class _LoginButton extends StatelessWidget {
         ///
         if (state.status == LoginStatus.authenticated) {
           final successText = Text(
-            '${state.username.value} başarıyla giriş yaptınız. Hoş geldiniz!',
+            context.translate.loginMessageSuccess(state.username.value),
             style: const TextStyle(
               color: Colors.white,
             ),
@@ -211,7 +211,7 @@ class _LoginButton extends StatelessWidget {
                 color: AppTheme.lightScheme.onPrimary,
               )
             : Text(
-                'Giriş Yap',
+                context.translate.authButtonLogIn,
                 style: TextStyle(
                   fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
                 ),
