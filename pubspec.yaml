@@ -41,6 +41,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/svg/
+    - assets/logos/
 
 flutter_gen:
   output: lib/core/gen
