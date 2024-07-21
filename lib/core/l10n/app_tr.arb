@@ -1,0 +1,43 @@
+{
+    "@@locale": "tr",
+
+    "appName": "Todo Uygulaması",
+    "@appName": {
+        "description": "Lütfen uygulama adını değiştirmeyin"
+    },
+
+    "loginMessageError": "Kullanıcı adınızı veya parolanızı kontrol edin",
+    "@loginMessageError": {
+        "description": "Giriş hatası mesajı"
+    },
+
+    "loginMessageSuccess": "{email} olarak giriş yaptınız",
+    "@loginMessageSuccess": {
+        "description": "Girişten sonra başarı mesajı",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+
+    "authFormUsername": "Kullanıcı Adı",
+    "@authFormUsername": {
+        "description": "Kullanıcı adı alanı etiketi"
+    },
+
+    "authFormPassword": "Şifre",
+    "@authFormPassword": {
+        "description": "Şifre alanı etiketi"
+    },
+
+    "authButtonLogIn": "Giriş Yap",
+    "@authButtonLogIn": {
+        "description": "Giriş butonu metni"
+    },
+
+    "authButtonLogOut": "Çıkış Yap",
+    "@authButtonLogOut": {
+        "description": "Çıkış butonu metni"
+    }
+}

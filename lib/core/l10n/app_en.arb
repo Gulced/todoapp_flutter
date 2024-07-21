@@ -1,0 +1,41 @@
+{
+    "@@locale": "en",
+
+    "appName": "Todo App",
+    "@appName": {
+        "description": "Please don't change the name of the application"
+    },
+
+    "loginMessageError": "Please check your username or password",
+    "@loginMessageError": {},
+
+    "loginMessageSuccess": "Signed in as {email}",
+    "@loginMessageSuccess": {
+        "description": "Success message after login",
+        "placeholders": {
+            "email": {
+                "type": "String"
+            }
+        }
+    },
+
+    "authFormUsername": "Username",
+    "@authFormUsername": {
+        "description": "Label for username field"
+    },
+
+    "authFormPassword": "Password",
+    "@authFormPassword": {
+        "description": "Label for password field"
+    },
+
+    "authButtonLogIn": "Log In",
+    "@authButtonLogIn": {
+        "description": "Login button text"
+    },
+
+    "authButtonLogOut": "Log Out",
+    "@authButtonLogOut": {
+        "description": "Logout button text"
+    }
+}
