@@ -69,6 +69,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   ) async {
     ///
     if (!state.isValid) return;
+    emit(state.copyWith(status: LoginStatus.loading));
 
     /// Request'i hazırlayalım
     final request = LoginRequest(

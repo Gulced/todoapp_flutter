@@ -4,16 +4,28 @@ import 'package:go_router/go_router.dart';
 
 import '/core/core.dart';
 import '/login/login.dart';
-import '/widgets/widgets.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: const LoginViewBody(),
+    ///
+    return GestureDetector(
+      /// Dismiss the Keyboard - Klavyeyi Kapat/Gizle
+      onTap: () {
+        final currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+
+      ///
+      child: const Scaffold(
+        ///
+        body: LoginViewBody(),
+      ),
     );
   }
 }
@@ -23,23 +35,30 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        /// [1] Logo
-        _BtkAkademiLogo(),
-        SizedBox(height: 60),
+    return const Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 24,
+      ),
+      child: ScrollableColumn(
+        children: [
+          SizedBox(height: 100),
 
-        /// [2] Username Field
-        _UsernameField(),
+          /// [1] Logo
+          _BtkAkademiLogo(),
+          SizedBox(height: 50),
 
-        /// [3] Password Field
-        SizedBox(height: 16),
-        _PasswordField(),
+          /// [2] Username Field
+          _UsernameField(),
 
-        /// [4] Login Button
-        SizedBox(height: 16),
-        _LoginButton(),
-      ],
+          /// [3] Password Field
+          SizedBox(height: 10),
+          _PasswordField(),
+
+          /// [4] Login Button
+          SizedBox(height: 10),
+          _LoginButton(),
+        ],
+      ),
     );
   }
 }
@@ -169,11 +188,11 @@ class _LoginButton extends StatelessWidget {
         ///
         child: state.status == LoginStatus.loading ||
                 state.status == LoginStatus.authenticated
-            ? const CircularProgressIndicator(
-                color: Colors.white,
+            ? CircularProgressIndicator(
+                color: AppTheme.lightScheme.primary,
               )
             : Text(
-                'Oturum Aç',
+                'Giriş Yap',
                 style: TextStyle(
                   fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
                 ),
