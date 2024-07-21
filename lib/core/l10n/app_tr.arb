@@ -26,6 +26,11 @@
         }
     },
 
+    "logoutMessageSuccess": "Oturumunuz kapatıldı",
+    "@logoutMessageSuccess": {
+        "description": "Kullanıcının çıkış yaptığında gösterilen mesaj."
+    },
+
     "signupMessageSuccess": "{email} olarak kaydoldu",
     "@signupMessageSuccess": {
         "description": "Kayıttan sonra başarı mesajı",

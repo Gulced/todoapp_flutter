@@ -25,6 +25,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     ///
     on<LoginSubmitted>(_onSubmitted);
+
+    ///
+    on<LogoutRequested>(_onLogoutRequested);
   }
 
   final ITokenRepository tokenRepository;
@@ -94,6 +97,36 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         return emit(
           state.copyWith(
             status: LoginStatus.authenticated,
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> _onLogoutRequested(
+    LogoutRequested event,
+    Emitter<LoginState> emit,
+  ) async {
+    ///
+    final result = await tokenRepository.logout();
+
+    ///
+    result.fold(
+      /// [Handle left]: Error Type
+      (LoginFailure failure) => emit(
+        state.copyWith(
+          status: LoginStatus.failure,
+        ),
+      ),
+
+      /// [Handle right]: Response Type
+      (unit) {
+        return emit(
+          state.copyWith(
+            status: LoginStatus.unAuthenticated,
+            username: const UsernameInput.pure(),
+            password: const PasswordInput.pure(),
+            isValid: false,
           ),
         );
       },

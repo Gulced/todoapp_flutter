@@ -26,6 +26,11 @@
         }
     },
 
+    "logoutMessageSuccess": "You have been logged out.",
+    "@logoutMessageSuccess": {
+        "description": "Message displayed when the user has been logged out."
+    },
+
     "signupMessageSuccess": "Signed up as {email}",
     "@signupMessageSuccess": {
         "description": "Success message after signup",
